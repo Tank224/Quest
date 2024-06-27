@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quest"
         android:screenOrientation="portrait"
+
+
         tools:targetApi="31">
         <activity
+
             android:name=".MainActivity"
+
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
@@ -23,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SecondActivity" />
     </application>
 
 </manifest>
