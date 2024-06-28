@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +6,7 @@
     android:id="@+id/mainLayout"
     tools:context=".MainActivity">
 
-    <!-- Добавляем ImageView для фона -->
+
     <ImageView
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Добавляем второй ImageView по центру -->
+
     <ImageView
         android:id="@+id/centerImageView"
         android:layout_width="wrap_content"
@@ -28,23 +27,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Добавляем третий ImageView поменьше и делаем его кликабельным -->
-
-    <ImageView
-        android:id="@+id/clickableImageView"
-        android:layout_width="136dp"
-        android:layout_height="129dp"
-        android:clickable="true"
-        android:onClick="onSmallImageClick"
-        android:src="@drawable/paper"
-        app:layout_constraintBottom_toBottomOf="@id/centerImageView"
-        app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="@id/centerImageView"
-        app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.822" />
 
     <ImageView
         android:id="@+id/clickableImageView2"
@@ -58,6 +43,80 @@
         app:layout_constraintHorizontal_bias="0.645"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.109" />
 
+    <ImageView
+        android:id="@+id/anotherSmallImage"
+        android:layout_width="136dp"
+        android:layout_height="129dp"
+        android:clickable="true"
+        android:onClick="onAnotherSmallImageClick"
+        android:src="@drawable/paper"
+        app:layout_constraintBottom_toBottomOf="@id/centerImageView"
+        app:layout_constraintEnd_toEndOf="@id/centerImageView"
+        app:layout_constraintHorizontal_bias="0.665"
+        app:layout_constraintStart_toStartOf="@id/centerImageView"
+        app:layout_constraintTop_toTopOf="@id/centerImageView"
+        app:layout_constraintVertical_bias="0.792" />
+
+    <LinearLayout
+        android:id="@+id/interactionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/centerImageView"
+        app:layout_constraintEnd_toEndOf="@id/centerImageView"
+        app:layout_constraintStart_toStartOf="@id/centerImageView"
+        app:layout_constraintTop_toTopOf="@id/centerImageView">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Что-то интересное"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/centerImageView"
+            app:layout_constraintStart_toStartOf="@id/centerImageView"
+            app:layout_constraintEnd_toEndOf="@id/centerImageView"
+            app:layout_constraintBottom_toBottomOf="@id/centerImageView" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/bigpaperImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bigpaper"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttonImage2"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:onClick="onButtonImage2Click"
+        android:visibility="gone"
+        android:src="@drawable/galochka"
+        app:layout_constraintBottom_toBottomOf="@id/centerImageView"
+        app:layout_constraintEnd_toEndOf="@id/centerImageView"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@id/centerImageView" />
+
+    <ImageView
+        android:id="@+id/buttonImage1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="212dp"
+        android:visibility="gone"
+        android:clickable="true"
+        android:onClick="onButtonImage1Click"
+        android:src="@drawable/back"
+        app:layout_constraintEnd_toEndOf="@id/centerImageView"
+        app:layout_constraintTop_toTopOf="@id/centerImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
