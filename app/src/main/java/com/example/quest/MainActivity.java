@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,13 +48,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void animateImageToCenter() {
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(clickableImageView2, "scaleX", 2.0f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(clickableImageView2, "scaleY", 2.0f);
         ObjectAnimator moveX = ObjectAnimator.ofFloat(clickableImageView2, "translationX", 0f);
         ObjectAnimator moveY = ObjectAnimator.ofFloat(clickableImageView2, "translationY", 0f);
 
         AnimatorSet set = new AnimatorSet();
-        set.playTogether(scaleX, scaleY, moveX, moveY);
+        set.playTogether(moveX, moveY);
         set.setDuration(500);
         set.addListener(new AnimatorSet.AnimatorListener() {
             @Override
@@ -92,13 +89,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetToInitialState() {
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(clickableImageView2, "scaleX", 1.0f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(clickableImageView2, "scaleY", 1.0f);
         ObjectAnimator moveX = ObjectAnimator.ofFloat(clickableImageView2, "translationX", 0f);
         ObjectAnimator moveY = ObjectAnimator.ofFloat(clickableImageView2, "translationY", 0f);
 
         AnimatorSet set = new AnimatorSet();
-        set.playTogether(scaleX, scaleY, moveX, moveY);
+        set.playTogether(moveX, moveY);
         set.setDuration(500);
         set.addListener(new AnimatorSet.AnimatorListener() {
             @Override
