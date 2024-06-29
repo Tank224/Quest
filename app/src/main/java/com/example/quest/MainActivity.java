@@ -15,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+    public void onAchiveButtonClick (View view){
+        Intent intent = new Intent(this, Achievement.class);
+        startActivity(intent);
+    }
     public void onSmallImageClick (View view) {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
