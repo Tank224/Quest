@@ -1,7 +1,6 @@
 package com.example.quest;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -35,19 +34,32 @@ public class MainActivity extends AppCompatActivity {
         buttonImage2 = findViewById(R.id.buttonImage2);
         textView = findViewById(R.id.textView);
         bigpaperImageView = findViewById(R.id.bigpaperImageView);
+
+        anotherSmallImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSmallImageClick2(v);
+            }
+        });
+
+        clickableImageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAnotherSmallImageClick(v);
+            }
+        });
     }
 
     public void onSmallImageClick2(View view) {
         anotherSmallImage.setVisibility(View.INVISIBLE);
-        animateImageToCenter();
+        animateImageToCenter("Жизнь состоит из одних вопросов,\nа хочется, чтобы она состояла из одних ответов");
     }
 
     public void onAnotherSmallImageClick(View view) {
         clickableImageView2.setVisibility(View.INVISIBLE);
-        animateImageToCenter();
+        animateImageToCenter("Жить, как говорится, хорошо!\nА хорошо жить еще лучше!");
     }
-
-    private void animateImageToCenter() {
+    private void animateImageToCenter(String text) {
         ObjectAnimator moveX = ObjectAnimator.ofFloat(clickableImageView2, "translationX", 0f);
         ObjectAnimator moveY = ObjectAnimator.ofFloat(clickableImageView2, "translationY", 0f);
 
@@ -68,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 buttonImage1.setVisibility(View.VISIBLE);
                 buttonImage2.setVisibility(View.VISIBLE);
                 clickableImageView2.setClickable(false);
-                bigpaperImageView.setVisibility(View.VISIBLE); // Сделать bigpaperImageView видимой
+                bigpaperImageView.setVisibility(View.VISIBLE);
+                textView.setText(text); // Устанавливаем текст в textView
             }
 
             @Override
@@ -108,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 clickableImageView2.setClickable(true);
                 clickableImageView2.setVisibility(View.VISIBLE);
                 anotherSmallImage.setVisibility(View.VISIBLE);
-                bigpaperImageView.setVisibility(View.GONE); // Скрыть bigpaperImageView
+                bigpaperImageView.setVisibility(View.GONE);
             }
 
             @Override

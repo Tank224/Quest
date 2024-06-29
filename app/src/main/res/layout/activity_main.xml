@@ -68,18 +68,10 @@
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Что-то интересное"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="@id/centerImageView"
-            app:layout_constraintStart_toStartOf="@id/centerImageView"
-            app:layout_constraintEnd_toEndOf="@id/centerImageView"
-            app:layout_constraintBottom_toBottomOf="@id/centerImageView" />
+
 
     </LinearLayout>
+
 
     <ImageView
         android:id="@+id/bigpaperImageView"
@@ -91,6 +83,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Что-то интересное"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/centerImageView"
+        app:layout_constraintStart_toStartOf="@id/centerImageView"
+        app:layout_constraintEnd_toEndOf="@id/centerImageView"
+        app:layout_constraintBottom_toBottomOf="@id/centerImageView" />
 
     <ImageView
         android:id="@+id/buttonImage2"
@@ -105,6 +107,7 @@
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@id/centerImageView" />
+
 
     <ImageView
         android:id="@+id/buttonImage1"
