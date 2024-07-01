@@ -20,6 +20,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         nachatimage = findViewById(R.id.nachatimage);
         soundImage = findViewById(R.id.soundImage);
+        textView = findViewById(R.id.textView);
         if (MainActivity.quest.equals("Сусанин")){textView.setText("В 1613 году после множества " +
                 "трагических событий на очередном Земском соборе дворяне избрали царем Михаила " +
                 "Федоровича Романова.\nНа тот момент ему было 17 лет. Юный царь вместе с матерью " +
