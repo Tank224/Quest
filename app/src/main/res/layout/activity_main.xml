@@ -101,7 +101,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
         app:layout_constraintHorizontal_bias="0.585"
@@ -145,23 +145,24 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273" />
+        app:layout_constraintVertical_bias="0.266" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Квест 1"
+        android:textColor="#000000"
+        android:textSize="25dp"
         android:visibility="gone"
-        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.055" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
