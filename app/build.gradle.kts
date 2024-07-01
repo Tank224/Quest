@@ -41,4 +41,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.yandex.android:maps.mobile:4.6.1-full")
     implementation("com.google.android.gms:play-services-location:18.0.0")
+    implementation("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
 }
