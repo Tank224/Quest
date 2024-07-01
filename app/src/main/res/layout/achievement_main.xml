@@ -32,24 +32,26 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <ImageView
-        android:id="@+id/Achive1"
+        android:id="@+id/Achiven1"
         android:layout_width="100dp"
         android:layout_height="91dp"
         android:clickable="true"
-        android:onClick="Change"
+        android:onClick="Change1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="@+id/backgroundImageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
-        <!--app:srcCompat="@drawable/paper"-->
+        app:layout_constraintVertical_bias="0.14"
+        app:srcCompat="@drawable/paper"/>
 
 
     <ImageView
-        android:id="@+id/Achive2"
+        android:id="@+id/Achiven2"
         android:layout_width="100dp"
         android:layout_height="91dp"
+        android:clickable="true"
+        android:onClick="Change2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.275"
@@ -59,9 +61,11 @@
         app:srcCompat="@drawable/paper" />
 
     <ImageView
-        android:id="@+id/Achive3"
+        android:id="@+id/Achiven3"
         android:layout_width="100dp"
         android:layout_height="91dp"
+        android:clickable="true"
+        android:onClick="Change3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.865"
@@ -71,9 +75,11 @@
         app:srcCompat="@drawable/paper" />
 
     <ImageView
-        android:id="@+id/Achive4"
+        android:id="@+id/Achiven4"
         android:layout_width="100dp"
         android:layout_height="91dp"
+        android:clickable="true"
+        android:onClick="Change4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.865"
