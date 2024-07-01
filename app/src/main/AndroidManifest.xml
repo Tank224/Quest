@@ -30,7 +30,6 @@
         <activity
             android:name=".MapActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar"
             />
         <activity
             android:name=".QuestActivity"

@@ -99,6 +99,10 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         setContentView(R.layout.activity_map);
         mapView = findViewById(R.id.mapview);
         mapView.getMap().move(new CameraPosition(new Point(57.76793278010096, 40.92686117065408), 10, 1, 0));
+        View oView = findViewById(R.id.mapLayout);
+        oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_FULLSCREEN);
         iRun = findViewById(R.id.iRun);
         userLocationLayer = MapKitFactory.getInstance().createUserLocationLayer(mapView.getMapWindow());
         userLocationLayer.setVisible(true);
@@ -152,12 +156,12 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         pedestrianRouter.requestRoutes(requestPoints, new TimeOptions(null, null), false, new Session.RouteListener() {
                 @Override
                 public void onMasstransitRoutes(@NonNull List<Route> list) {
-                    for (Route route : list) {
-                        PolylineMapObject polyline = mapObjects.addPolyline(route.getGeometry());
-                        styleMainRoute(polyline);
-                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
-                        polyline.setStrokeWidth(5); // Ширина линии маршрута
-                    }
+//                    for (Route route : list) {
+//                        PolylineMapObject polyline = mapObjects.addPolyline(route.getGeometry());
+//                        styleMainRoute(polyline);
+//                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
+//                        polyline.setStrokeWidth(5); // Ширина линии маршрута
+//                    }
                 }
                 @Override
                 public void onMasstransitRoutesError(@NonNull Error error) {
