@@ -175,11 +175,11 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         polyline.setStrokeWidth(5f);
     }
     public void onIRunClick(View view) {
-        float[] results = new float[1];
-        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
-        if (results[0] <= 200) {
-            Intent intent = new Intent(MapActivity.this, MainActivity.class);
+//        float[] results = new float[1];
+//        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
+//        if (results[0] <= 200) {
+            Intent intent = new Intent(MapActivity.this, QuestActivity.class);
             startActivity(intent);
-        }
+//        }
     }
 }
