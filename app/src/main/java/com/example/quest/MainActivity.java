@@ -57,18 +57,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSmallImageClick2(View view) {
         anotherSmallImage.setVisibility(View.INVISIBLE);
-        animateImageToCenter("Жизнь состоит из одних\n вопросов,а хочется,\n чтобы она состояла \nиз одних ответов");//меняется текст на квесте
-        textView2.setText("Квест 1");
+        animateImageToCenter("Возьми на себя роль\n князя Юрия Долгорукого \nи начни строительство \nКостромы.");//меняется текст на квесте
+        textView2.setText("\"Град Кострома\"");
         imageStat.setScaleX(0.6f);
         imageStat.setScaleY(0.6f);
         imageStat.setImageResource(R.drawable.statdolgorukiy2);//меняется картинка на статуе
-        imageStat.setImageResource(R.drawable.statdolgorukiy);//меняется картинка на статуе
+
     }
 
     public void onAnotherSmallImageClick(View view) {
         clickableImageView2.setVisibility(View.INVISIBLE);
         animateImageToCenter("Возьми на себя роль\n старосты деревни Ивана Сусанина\n и попробуй повторить его подвиг.");
-        textView2.setText("Квест 2");
+        textView2.setText(" \"По следам подвига\"");
+        imageStat.setScaleX(0.8f);
+        imageStat.setScaleY(0.8f);
         imageStat.setImageResource(R.drawable.statsusanin);//меняется картинка на статуе
     }
     public void onAchievementsClick(View view) {
