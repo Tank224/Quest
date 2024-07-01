@@ -114,8 +114,8 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         mapObjects = mapView.getMap().getMapObjects().addCollection();
         mapObjects.setVisible(true);
         requestRoutes();
-        ImageProvider imageProvider = ImageProvider.fromResource(this, R.drawable.paper);
-        mapObjects.addPlacemark(MainActivity.point1).setIcon(imageProvider, new IconStyle().setScale(0.07f).setZIndex(20f));
+        ImageProvider imageProvider = ImageProvider.fromResource(this, R.drawable.susanin);
+        mapObjects.addPlacemark(MainActivity.point1).setIcon(imageProvider, new IconStyle().setScale(0.1f).setZIndex(20f));
     }
     @Override
     protected void onStart() {
@@ -159,8 +159,8 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
                     for (Route route : list) {
                         PolylineMapObject polyline = mapObjects.addPolyline(route.getGeometry());
                         styleMainRoute(polyline);
-                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
-                        polyline.setStrokeWidth(5); // Ширина линии маршрута
+//                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
+//                        polyline.setStrokeWidth(5); // Ширина линии маршрута
                     }
                 }
                 @Override
