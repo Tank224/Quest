@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         anotherSmallImage.setVisibility(View.INVISIBLE);
         animateImageToCenter("Жизнь состоит из одних\n вопросов,а хочется,\n чтобы она состояла \nиз одних ответов");//меняется текст на квесте
         textView2.setText("Квест 1");
+        imageStat.setScaleX(0.6f);
+        imageStat.setScaleY(0.6f);
+        imageStat.setImageResource(R.drawable.statdolgorukiy2);//меняется картинка на статуе
         imageStat.setImageResource(R.drawable.statdolgorukiy);//меняется картинка на статуе
     }
 
