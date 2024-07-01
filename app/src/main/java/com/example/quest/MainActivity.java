@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         anotherSmallImage.setVisibility(View.INVISIBLE);
         animateImageToCenter("Жизнь состоит из одних\n вопросов,а хочется,\n чтобы она состояла \nиз одних ответов");//меняется текст на квесте
         textView2.setText("Квест 1");
-        imageStat.setImageResource(R.drawable.statdolgorukiy2);//меняется картинка на статуе
+        imageStat.setImageResource(R.drawable.statdolgorukiy);//меняется картинка на статуе
     }
 
     public void onAnotherSmallImageClick(View view) {
         clickableImageView2.setVisibility(View.INVISIBLE);
-        animateImageToCenter("Жить, как говорится, хорошо!\nА хорошо жить еще лучше!");
+        animateImageToCenter("Возьми на себя роль\n старосты деревни Ивана Сусанина\n и попробуй повторить его подвиг.");
         textView2.setText("Квест 2");
         imageStat.setImageResource(R.drawable.statsusanin);//меняется картинка на статуе
     }

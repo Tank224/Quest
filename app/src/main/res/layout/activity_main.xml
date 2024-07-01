@@ -100,7 +100,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
         app:layout_constraintHorizontal_bias="0.585"
