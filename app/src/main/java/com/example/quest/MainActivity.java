@@ -129,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
         imageStat.setImageResource(R.drawable.statsusanin);//меняется картинка на статуе
     }
     public void onAchievementsClick(View view) {
-        //Intent intent = new Intent(this, SecondActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
         // Обработка нажатия на clickableAchievements
     }
     private void animateImageToCenter(String text) {

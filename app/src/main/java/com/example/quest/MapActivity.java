@@ -178,7 +178,7 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
 //        float[] results = new float[1];
 //        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
 //        if (results[0] <= 200) {
-            Intent intent = new Intent(MapActivity.this, QuestActivity.class);
+            Intent intent = new Intent(MapActivity.this, SecondActivity.class);
             startActivity(intent);
 //        }
     }

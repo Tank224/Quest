@@ -34,6 +34,9 @@
         <activity
             android:name=".QuestActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".SecondActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
