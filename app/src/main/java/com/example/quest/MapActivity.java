@@ -95,10 +95,6 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MapKitFactory.setApiKey(API_KEY);
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-//            return;
-//        }
         MapKitFactory.initialize(this);
         setContentView(R.layout.activity_map);
         mapView = findViewById(R.id.mapview);
@@ -114,7 +110,7 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         mapObjects = mapView.getMap().getMapObjects().addCollection();
         mapObjects.setVisible(true);
         requestRoutes();
-        ImageProvider imageProvider = ImageProvider.fromResource(this, R.drawable.paper);
+        ImageProvider imageProvider = ImageProvider.fromResource(this, MainActivity.pointImage);
         mapObjects.addPlacemark(MainActivity.point1).setIcon(imageProvider, new IconStyle().setScale(0.07f).setZIndex(20f));
     }
     @Override

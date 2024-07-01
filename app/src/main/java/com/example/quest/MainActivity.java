@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public static Point point2 = new Point(57.766603637743245, 40.929353020483006);
 
     public static String quest;
+    public static int pointImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
     }
     public void onSmallImageClick2(View view) {
+        quest = "Долгорукий";
+        point1 = new Point(57.766603637743245, 40.929353020483006);
+        pointImage = R.drawable.dolgorukiy;
         anotherSmallImage.setVisibility(View.INVISIBLE);
         animateImageToCenter("Жизнь состоит из одних\n вопросов,а хочется,\n чтобы она состояла \nиз одних ответов");//меняется текст на квесте
         textView2.setText("Квест 1");
@@ -111,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAnotherSmallImageClick(View view) {
+        quest = "Сусанин";
+        point1 = new Point(57.766977559205536, 40.92477980384792);
+        pointImage = R.drawable.susanin;
         clickableImageView2.setVisibility(View.INVISIBLE);
         animateImageToCenter("Жить, как говорится, хорошо!\nА хорошо жить еще лучше!");
         textView2.setText("Квест 2");
