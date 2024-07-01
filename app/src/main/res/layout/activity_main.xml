@@ -48,7 +48,7 @@
         android:layout_height="129dp"
         android:clickable="true"
         android:onClick="onSmallImageClick2"
-        android:src="@drawable/paper2"
+        android:src="@drawable/susanin"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
         app:layout_constraintHorizontal_bias="0.645"
@@ -62,7 +62,7 @@
         android:layout_height="129dp"
         android:clickable="true"
         android:onClick="onAnotherSmallImageClick"
-        android:src="@drawable/paper"
+        android:src="@drawable/dolgorukiy"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
         app:layout_constraintHorizontal_bias="0.665"
@@ -144,10 +144,10 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintVertical_bias="0.273" />
 
     <TextView
         android:id="@+id/textView2"
