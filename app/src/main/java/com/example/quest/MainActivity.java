@@ -6,6 +6,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -42,67 +43,77 @@ public class MainActivity extends AppCompatActivity {
     public static int pointImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        View oView = findViewById(R.id.mainLayout);
-        oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            View oView = findViewById(R.id.mainLayout);
+            oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
 
-        clickableImageView2 = findViewById(R.id.clickableImageView2);
-        anotherSmallImage = findViewById(R.id.anotherSmallImage);
-        centerImageView = findViewById(R.id.centerImageView);
-        interactionLayout = findViewById(R.id.interactionLayout);
-        buttonImage1 = findViewById(R.id.buttonImage1);
-        buttonImage2 = findViewById(R.id.buttonImage2);
-        textView = findViewById(R.id.textView);
-        bigpaperImageView = findViewById(R.id.bigpaperImageView);
-        textView2 = findViewById(R.id.textView2);
-        imageStat=findViewById(R.id.imageStat);
-        clickableAchievements=findViewById(R.id.clickableAchievements);
+            clickableImageView2 = findViewById(R.id.clickableImageView2);
+            anotherSmallImage = findViewById(R.id.anotherSmallImage);
+            centerImageView = findViewById(R.id.centerImageView);
+            interactionLayout = findViewById(R.id.interactionLayout);
+            buttonImage1 = findViewById(R.id.buttonImage1);
+            buttonImage2 = findViewById(R.id.buttonImage2);
+            textView = findViewById(R.id.textView);
+            bigpaperImageView = findViewById(R.id.bigpaperImageView);
+            textView2 = findViewById(R.id.textView2);
+            imageStat = findViewById(R.id.imageStat);
+            clickableAchievements = findViewById(R.id.clickableAchievements);
 
-        anotherSmallImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSmallImageClick2(v);
-            }
-        });
-
-        clickableImageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onAnotherSmallImageClick(v);
-            }
-        });
-
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                try {
-                    sleep(1000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    PermissionListener permissionlistener = new PermissionListener() {
-                        @Override
-                        public void onPermissionGranted() {
-                        }
-
-                        @Override
-                        public void onPermissionDenied(List<String> deniedPermissions) {
-                            Toast.makeText(MainActivity.this, "Доступ запрещен\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    };
-                    TedPermission.create()
-                            .setPermissionListener(permissionlistener)
-                            .setDeniedMessage("Для использования приложения необходимо предоставить доступ к местоположению\n\nTo use the application, you must provide location access")
-                            .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-                            .check();
+            anotherSmallImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onSmallImageClick2(v);
                 }
-            }
-        };
-        thread.start();
+            });
+
+            clickableImageView2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onAnotherSmallImageClick(v);
+                }
+            });
+
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    try {
+                        sleep(3000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        PermissionListener permissionlistener = new PermissionListener() {
+                            @Override
+                            public void onPermissionGranted() {
+                            }
+
+                            @Override
+                            public void onPermissionDenied(List<String> deniedPermissions) {
+                                Toast.makeText(MainActivity.this, "Доступ запрещен\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        };
+                        TedPermission.create()
+                                .setPermissionListener(permissionlistener)
+                                .setDeniedMessage("Для использования приложения необходимо предоставить доступ к местоположению\n\nTo use the application, you must provide location access")
+                                .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+                                .check();
+                    }
+                }
+            };
+            thread.start();
+        }
+        catch (Exception e)
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle("jib,rf")
+                    .setMessage(e.getMessage())
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+        }
     }
     public void onSmallImageClick2(View view) {
         quest = "Долгорукий";

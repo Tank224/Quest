@@ -7,6 +7,15 @@
     android:background="@drawable/pepper_list"
     android:id="@+id/questLayout">
 
+    <ImageView
+        android:id="@+id/imageBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onBackClick"
+        android:src="@drawable/back"
+        android:layout_gravity="end"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,8 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Sample Text"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textColor="@color/grey"
+        android:textSize="18sp" />
+
 
     <LinearLayout
         android:layout_width="match_parent"

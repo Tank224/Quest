@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity"
+    android:id="@+id/secondLayout">
 
     <!-- Добавляем ImageView для фона -->
 
@@ -70,7 +71,8 @@
         android:clickable="true"
         android:onClick="onSoundClick"
         android:src="@drawable/sound"
-
+        android:scaleX="0.7"
+        android:scaleY="0.7"
         app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
         app:layout_constraintEnd_toEndOf="@+id/centerImageView"
         app:layout_constraintHorizontal_bias="0.312"
@@ -80,17 +82,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="421dp"
-        android:layout_height="41dp"
+        android:layout_width="323dp"
+        android:layout_height="192dp"
         android:text="«Поскользнулся, упал, закрытый перелом,\n потерял сознание, очнулся — гипс!»"
-        android:textColor="#000000"
+        android:textColor="@color/grey"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
         app:layout_constraintEnd_toEndOf="@+id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/centerImageView"
         app:layout_constraintTop_toTopOf="@+id/centerImageView"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintVertical_bias="0.586" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

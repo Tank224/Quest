@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PointF;
@@ -93,29 +94,40 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     private FusedLocationProviderClient fusedLocationClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        MapKitFactory.setApiKey(API_KEY);
-        MapKitFactory.initialize(this);
-        setContentView(R.layout.activity_map);
-        mapView = findViewById(R.id.mapview);
-        mapView.getMap().move(new CameraPosition(new Point(57.76793278010096, 40.92686117065408), 10, 1, 0));
-        View oView = findViewById(R.id.mapLayout);
-        oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_FULLSCREEN);
-        iRun = findViewById(R.id.iRun);
-        userLocationLayer = MapKitFactory.getInstance().createUserLocationLayer(mapView.getMapWindow());
-        userLocationLayer.setVisible(true);
-        userLocationLayer.setHeadingEnabled(true);
+        try {
+            super.onCreate(savedInstanceState);
+            MapKitFactory.setApiKey(API_KEY);
+            setContentView(R.layout.activity_map);
+            MapKitFactory.initialize(this);
+            mapView = findViewById(R.id.mapview);
+            mapView.getMap().move(new CameraPosition(new Point(57.76793278010096, 40.92686117065408), 10, 1, 0));
+            View oView = findViewById(R.id.mapLayout);
+            oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
+            iRun = findViewById(R.id.iRun);
+            userLocationLayer = MapKitFactory.getInstance().createUserLocationLayer(mapView.getMapWindow());
+            userLocationLayer.setVisible(true);
+            userLocationLayer.setHeadingEnabled(false);
+            userLocationLayer.setAutoZoomEnabled(false);
 
-        userLocationLayer.setObjectListener(this);
-        pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter();
+            userLocationLayer.setObjectListener(this);
+            pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter();
 
-        mapObjects = mapView.getMap().getMapObjects().addCollection();
-        mapObjects.setVisible(true);
-        requestRoutes();
-        ImageProvider imageProvider = ImageProvider.fromResource(this, MainActivity.pointImage);
-        mapObjects.addPlacemark(MainActivity.point1).setIcon(imageProvider, new IconStyle().setScale(0.07f).setZIndex(20f));
+            mapObjects = mapView.getMap().getMapObjects().addCollection();
+            mapObjects.setVisible(true);
+            ImageProvider imageProvider = ImageProvider.fromResource(this, MainActivity.pointImage);
+            mapObjects.addPlacemark(MainActivity.point1).setIcon(imageProvider,
+                    new IconStyle().setScale(0.1f).setZIndex(20f));
+        }
+        catch (Exception e)
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle("jib,rf")
+                    .setMessage(e.getMessage())
+                    .setPositiveButton(android.R.string.ok, null)
+                            .show();
+        }
     }
     @Override
     protected void onStart() {
@@ -132,7 +144,6 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     }
     @Override
     public void onObjectAdded(UserLocationView userLocationView) {
-        currentUserLocation = userLocationView.getArrow().getGeometry();
 //        mapView.getMap().move(new CameraPosition(currentUserLocation, 14, 0, 0));
         userLocationLayer.setAnchor(
                 new PointF((float)(mapView.getWidth() * 0.5), (float)(mapView.getHeight() * 0.5)),
@@ -147,21 +158,22 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     @Override
     public void onObjectUpdated(UserLocationView view, ObjectEvent event) {
         currentUserLocation = view.getArrow().getGeometry();
+        requestRoutes();
     }
 
     private void requestRoutes(){
         List<RequestPoint> requestPoints = new ArrayList<>();
-        requestPoints.add(new RequestPoint(MainActivity.point2, RequestPointType.WAYPOINT, null, null));
+        requestPoints.add(new RequestPoint(currentUserLocation, RequestPointType.WAYPOINT, null, null));
         requestPoints.add(new RequestPoint(MainActivity.point1, RequestPointType.WAYPOINT, null, null));
         pedestrianRouter.requestRoutes(requestPoints, new TimeOptions(null, null), false, new Session.RouteListener() {
                 @Override
                 public void onMasstransitRoutes(@NonNull List<Route> list) {
-//                    for (Route route : list) {
-//                        PolylineMapObject polyline = mapObjects.addPolyline(route.getGeometry());
-//                        styleMainRoute(polyline);
-//                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
-//                        polyline.setStrokeWidth(5); // Ширина линии маршрута
-//                    }
+                    for (Route route : list) {
+                        PolylineMapObject polyline = mapObjects.addPolyline(route.getGeometry());
+                        styleMainRoute(polyline);
+                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
+                        polyline.setStrokeWidth(5); // Ширина линии маршрута
+                    }
                 }
                 @Override
                 public void onMasstransitRoutesError(@NonNull Error error) {
@@ -175,11 +187,15 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         polyline.setStrokeWidth(5f);
     }
     public void onIRunClick(View view) {
-//        float[] results = new float[1];
+        float[] results = new float[1];
 //        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
 //        if (results[0] <= 200) {
             Intent intent = new Intent(MapActivity.this, SecondActivity.class);
             startActivity(intent);
 //        }
+    }
+    public void onBackClick(View view) {
+        Intent intent = new Intent(MapActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
