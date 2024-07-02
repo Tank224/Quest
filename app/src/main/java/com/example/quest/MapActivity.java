@@ -25,6 +25,7 @@ import com.yandex.mapkit.directions.DirectionsFactory;
 import com.yandex.mapkit.directions.driving.PedestrianCrossing;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.map.CameraPosition;
+import com.yandex.mapkit.map.MapObject;
 import com.yandex.mapkit.map.MapObjectCollection;
 import com.yandex.mapkit.map.PolylineMapObject;
 import com.yandex.mapkit.mapview.MapView;
@@ -187,7 +188,7 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         polyline.setStrokeWidth(5f);
     }
     public void onIRunClick(View view) {
-        float[] results = new float[1];
+//        float[] results = new float[1];
 //        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
 //        if (results[0] <= 200) {
             Intent intent = new Intent(MapActivity.this, SecondActivity.class);
