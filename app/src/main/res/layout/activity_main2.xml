@@ -44,10 +44,10 @@
         android:src="@drawable/back"
         app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
         app:layout_constraintEnd_toEndOf="@+id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.694"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/centerImageView"
         app:layout_constraintTop_toTopOf="@+id/centerImageView"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.279" />
 
     <ImageView
         android:id="@+id/nachatimage"
@@ -58,10 +58,10 @@
         android:src="@drawable/nachat"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.785" />
 
     <ImageView
         android:id="@+id/soundImage"
@@ -73,24 +73,23 @@
 
         app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
         app:layout_constraintEnd_toEndOf="@+id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="@+id/centerImageView"
         app:layout_constraintTop_toTopOf="@+id/centerImageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.284" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="421dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="«Поскользнулся, упал, закрытый перелом,\n потерял сознание, очнулся — гипс!»"
         android:textColor="#000000"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
-        app:layout_constraintEnd_toEndOf="@+id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.711"
-        app:layout_constraintStart_toStartOf="@+id/centerImageView"
-        app:layout_constraintTop_toTopOf="@+id/centerImageView"
-        app:layout_constraintVertical_bias="0.375" />
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

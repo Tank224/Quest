@@ -21,11 +21,13 @@
 
     <ImageView
         android:id="@+id/centerImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/board"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/board5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -51,10 +53,10 @@
         android:src="@drawable/susanin"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <ImageView
         android:id="@+id/anotherSmallImage"
@@ -65,10 +67,10 @@
         android:src="@drawable/dolgorukiy"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.665"
+        app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.792" />
+        app:layout_constraintVertical_bias="0.637" />
 
     <LinearLayout
         android:id="@+id/interactionLayout"
@@ -96,39 +98,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:text="Что-то интересоное"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.356" />
 
     <ImageView
         android:id="@+id/buttonImage2"
         android:layout_width="83dp"
         android:layout_height="83dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="200dp"
         android:clickable="true"
         android:onClick="onButtonImage2Click"
         android:visibility="gone"
         android:src="@drawable/galochka"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="@id/centerImageView" />
-
 
     <ImageView
         android:id="@+id/buttonImage1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="212dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="4dp"
         android:visibility="gone"
         android:clickable="true"
         android:onClick="onButtonImage1Click"
@@ -138,16 +143,17 @@
 
     <ImageView
         android:id="@+id/imageStat"
-        android:layout_width="251dp"
-        android:layout_height="285dp"
-        android:src="@drawable/statuia"
+        android:layout_width="237dp"
+        android:layout_height="274dp"
         android:visibility="gone"
+        android:src="@drawable/statuia"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <TextView
         android:id="@+id/textView2"
@@ -159,9 +165,9 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/centerImageView"
         app:layout_constraintEnd_toEndOf="@id/centerImageView"
-        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="@id/centerImageView"
         app:layout_constraintTop_toTopOf="@id/centerImageView"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.274" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

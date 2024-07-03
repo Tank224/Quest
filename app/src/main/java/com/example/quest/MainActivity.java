@@ -3,6 +3,7 @@ package com.example.quest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -75,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
         imageStat.setImageResource(R.drawable.statsusanin);//меняется картинка на статуе
     }
     public void onAchievementsClick(View view) {
-        //Intent intent = new Intent(this, SecondActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
         // Обработка нажатия на clickableAchievements
     }
     private void animateImageToCenter(String text) {
