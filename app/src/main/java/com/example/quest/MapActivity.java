@@ -1,5 +1,8 @@
 package com.example.quest;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_NO_HISTORY;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -90,9 +93,6 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     private MapObjectCollection mapObjects;
     private Point currentUserLocation;
     List<Route> route = new ArrayList<>();
-    private DrivingRouter drivingRouter;
-    private DrivingSession drivingSession;
-    private FusedLocationProviderClient fusedLocationClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -106,7 +106,6 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
             oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                     | View.SYSTEM_UI_FLAG_FULLSCREEN);
-            iRun = findViewById(R.id.iRun);
             userLocationLayer = MapKitFactory.getInstance().createUserLocationLayer(mapView.getMapWindow());
             userLocationLayer.setVisible(true);
             userLocationLayer.setHeadingEnabled(false);
@@ -114,7 +113,6 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
 
             userLocationLayer.setObjectListener(this);
             pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter();
-
             mapObjects = mapView.getMap().getMapObjects().addCollection();
             mapObjects.setVisible(true);
             ImageProvider imageProvider = ImageProvider.fromResource(this, MainActivity.pointImage);
@@ -132,16 +130,37 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     }
     @Override
     protected void onStart() {
-        super.onStart();
-        MapKitFactory.getInstance().onStart();
-        mapView.onStart();
+        try {
+            super.onStart();
+            MapKitFactory.getInstance().onStart();
+            mapView.onStart();
 
+        }
+        catch (Exception e)
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle("jib,rf")
+                    .setMessage(e.getMessage())
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+        }
     }
     @Override
     protected void onStop() {
-        mapView.onStop();
-        MapKitFactory.getInstance().onStop();
-        super.onStop();
+        try {
+            mapObjects.clear();
+            mapView.onStop();
+            MapKitFactory.getInstance().onStop();
+            super.onStop();
+        }
+        catch (Exception e)
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle("jib,rf")
+                    .setMessage(e.getMessage())
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+        }
     }
     @Override
     public void onObjectAdded(UserLocationView userLocationView) {
@@ -149,11 +168,12 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         userLocationLayer.setAnchor(
                 new PointF((float)(mapView.getWidth() * 0.5), (float)(mapView.getHeight() * 0.5)),
                 new PointF((float)(mapView.getWidth() * 0.5), (float)(mapView.getHeight() * 0.83)));
+
     }
 
     @Override
     public void onObjectRemoved(UserLocationView view) {
-
+        userLocationLayer.resetAnchor();
     }
 
     @Override
@@ -169,11 +189,12 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         pedestrianRouter.requestRoutes(requestPoints, new TimeOptions(null, null), false, new Session.RouteListener() {
                 @Override
                 public void onMasstransitRoutes(@NonNull List<Route> list) {
+
                     for (Route route : list) {
                         PolylineMapObject polyline = mapObjects.addPolyline(route.getGeometry());
                         styleMainRoute(polyline);
-                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
-                        polyline.setStrokeWidth(5); // Ширина линии маршрута
+//                        polyline.setStrokeColor(0xFF0000FF); // Цвет линии маршрута
+//                        polyline.setStrokeWidth(5); // Ширина линии маршрута
                     }
                 }
                 @Override
@@ -184,19 +205,24 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
     }
     private void styleMainRoute(PolylineMapObject polyline) {
         polyline.setZIndex(10f);
-        polyline.setStrokeColor(0xFF0000FF);
-        polyline.setStrokeWidth(5f);
+        polyline.setStrokeColor(0xd2691e);
+        polyline.setStrokeWidth(4f);
     }
     public void onIRunClick(View view) {
 //        float[] results = new float[1];
 //        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
 //        if (results[0] <= 200) {
+
             Intent intent = new Intent(MapActivity.this, SecondActivity.class);
             startActivity(intent);
 //        }
+//        else{
+//            Toast.makeText(MapActivity.this, "Подойдите ближе к скульптуре",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
     public void onBackClick(View view) {
-        Intent intent = new Intent(MapActivity.this, MainActivity.class);
-        startActivity(intent);
+            Intent intent = new Intent(MapActivity.this, MainActivity.class);
+            startActivity(intent);
     }
 }

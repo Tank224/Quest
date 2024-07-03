@@ -41,13 +41,13 @@ public class SecondActivity extends AppCompatActivity implements TextToSpeech.On
         else {textView.setText("Ты — Юрий Долгорукий, князь Владимиро-Суздальский. Тебе предстоит основать новый город на берегу Волги и построить детинец, чтобы защититься от волжских булгар и мордвы и контролировать значимую для всей Северо-Восточной Руси речную торговлю по верхнему течению реки. Ваши решения определят будущее города.");}
     }
     public void onBackButtonClick(View view) {
-        stop = false;
+        //stop = false;
         mTextToSpeech.stop();
         Intent intent = new Intent(SecondActivity.this, MainActivity.class);
         startActivity(intent);
     }
     public void onNachatClick(View view) {
-        stop = false;
+        //stop = false;
         mTextToSpeech.stop();
         Intent intent = new Intent(SecondActivity.this, QuestActivity.class);
         startActivity(intent);
@@ -57,12 +57,12 @@ public class SecondActivity extends AppCompatActivity implements TextToSpeech.On
             if (stop == false) {
                 String textToSpeech = textView.getText().toString();
                 mTextToSpeech.speak(textToSpeech, TextToSpeech.QUEUE_FLUSH, null, "id1");
-                stop = true;
+                //stop = true;
                 setupUtteranceProgressListener();
             }
             else
             {
-                stop = false;
+                //stop = false;
                 mTextToSpeech.stop();
             }
         }
@@ -87,6 +87,9 @@ public class SecondActivity extends AppCompatActivity implements TextToSpeech.On
             @Override
             public void onStart(String utteranceId) {
                 // Действие при начале воспроизведения
+                runOnUiThread(() -> {
+                    stop = true;
+                });
             }
 
             @Override

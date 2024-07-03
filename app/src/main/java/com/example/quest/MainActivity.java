@@ -1,5 +1,8 @@
 package com.example.quest;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_NO_HISTORY;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -185,8 +188,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonImage2Click(View view) {
-        Intent intent = new Intent(MainActivity.this, MapActivity.class);
-        startActivity(intent);
+        try {
+            Intent intent = new Intent(MainActivity.this, MapActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(intent);
+        }
+        catch (Exception e)
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle("jib,rf")
+                    .setMessage(e.getMessage())
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+        }
     }
 
     private void resetToInitialState() {
