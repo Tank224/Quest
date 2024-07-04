@@ -1,6 +1,9 @@
 package com.example.quest;
 
+
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,7 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.yandex.mapkit.MapKitFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +29,10 @@ public class QuestActivity extends AppCompatActivity {
     private TextView textView;
     private List<Button> buttons;
     List<Scene> scenes = new ArrayList<> ();
+    static SharedPreferences sharedPref;
+    static char[] char_array;
+    static String Key_string;
+    final String SAVED_TEXT = "saved_text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,20 +223,33 @@ public class QuestActivity extends AppCompatActivity {
                 break;
             }
         }
-        // Обработка выбора пользователя
-//        switch (selectedOption) {
-//            case 0:
-//                createQuestScreen(R.drawable.attack_image, "Вы атаковали монстра и победили!", new String[]{"Продолжить"});
-//                break;
-//            case 1:
-//                createQuestScreen(R.drawable.run_image, "Вы убежали от монстра, но потеряли все вещи.", new String[]{"Продолжить"});
-//                break;
-//            case 2:
-//                createQuestScreen(R.drawable.talk_image, "Вы поговорили с монстром, и он стал вашим другом.", new String[]{"Продолжить"});
-//                break;
-//            default:
-//                break;
-//        }
+        if (selectedOption.equals("Ремесленные мастерские"))
+        {
+                Toast.makeText(QuestActivity.this, "Вы получили новое достижение!",
+                        Toast.LENGTH_SHORT).show();
+                sharedPref = getSharedPreferences(SAVED_TEXT, MODE_PRIVATE);
+                Key_string = sharedPref.getString(SAVED_TEXT, "");
+                char_array = Key_string.toCharArray();
+                char_array[1] = '1';
+                String key = String.valueOf(char_array);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(SAVED_TEXT, key);
+                editor.apply();
+        }
+        if(selectedOption.equals("\"Вам уже не найти царя!\"") || selectedOption.equals("\"Это " +
+                "правильный путь, нужно только обойти болото\""))
+        {
+                Toast.makeText(QuestActivity.this, "Вы получили новое достижение!",
+                        Toast.LENGTH_SHORT).show();
+                sharedPref = getSharedPreferences(SAVED_TEXT, MODE_PRIVATE);
+                Key_string = sharedPref.getString(SAVED_TEXT, "");
+                char_array = Key_string.toCharArray();
+                char_array[0] = '1';
+                String key = String.valueOf(char_array);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(SAVED_TEXT, key);
+                editor.apply();
+        }
 
     }
 }

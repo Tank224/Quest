@@ -142,12 +142,6 @@ public class MainActivity extends AppCompatActivity {
         imageStat.setScaleX(0.8f);
         imageStat.setScaleY(0.8f);
         imageStat.setImageResource(R.drawable.statsusanin);//меняется картинка на статуе
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        View oView = findViewById(R.id.MainLayout);
-        oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
     public void onAchiveButtonClick (View view){
         Intent intent = new Intent(this, Achievement.class);
@@ -156,5 +150,85 @@ public class MainActivity extends AppCompatActivity {
     public void onSmallImageClick (View view) {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
+    }
+    public void onButtonImage2Click(View view)
+    {
+        Intent intent = new Intent(this, MapActivity.class);
+        //intent.addFlags(FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
+    }
+
+    private void animateImageToCenter(String text) {
+        ObjectAnimator moveX = ObjectAnimator.ofFloat(clickableImageView2, "translationX", 0f);
+        ObjectAnimator moveY = ObjectAnimator.ofFloat(clickableImageView2, "translationY", 0f);
+
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(moveX, moveY);
+        set.setDuration(500);
+        set.addListener(new AnimatorSet.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                clickableImageView2.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                clickableImageView2.setVisibility(View.VISIBLE);
+                interactionLayout.setVisibility(View.VISIBLE);
+                textView.setVisibility(View.VISIBLE);
+                textView2.setVisibility(View.VISIBLE);
+                buttonImage1.setVisibility(View.VISIBLE);
+                buttonImage2.setVisibility(View.VISIBLE);
+                imageStat.setVisibility(View.VISIBLE);
+                clickableImageView2.setClickable(false);
+                bigpaperImageView.setVisibility(View.VISIBLE);
+                textView.setText(text); // Устанавливаем текст в textView
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {}
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {}
+        });
+        set.start();
+    }
+
+    public void onButtonImage1Click(View view) {
+        resetToInitialState();
+    }
+
+    private void resetToInitialState() {
+        ObjectAnimator moveX = ObjectAnimator.ofFloat(clickableImageView2, "translationX", 0f);
+        ObjectAnimator moveY = ObjectAnimator.ofFloat(clickableImageView2, "translationY", 0f);
+
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(moveX, moveY);
+        set.setDuration(500);
+        set.addListener(new AnimatorSet.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {}
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                interactionLayout.setVisibility(View.GONE);
+                textView.setVisibility(View.GONE);
+                buttonImage1.setVisibility(View.GONE);
+                buttonImage2.setVisibility(View.GONE);
+                imageStat.setVisibility(View.GONE);
+                textView2.setVisibility(View.GONE);
+                clickableImageView2.setClickable(true);
+                clickableImageView2.setVisibility(View.VISIBLE);
+                anotherSmallImage.setVisibility(View.VISIBLE);
+                bigpaperImageView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {}
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {}
+        });
+        set.start();
     }
 }

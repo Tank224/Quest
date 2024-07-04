@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SecondLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/SecondLayout"
     tools:context=".SecondActivity">
 
     <!-- Добавляем ImageView для фона -->
@@ -37,16 +37,12 @@
         android:id="@+id/backButtonImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="216dp"
+        android:layout_marginTop="167dp"
         android:clickable="true"
         android:onClick="onBackButtonClick"
         android:src="@drawable/back"
-        app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
-        app:layout_constraintEnd_toEndOf="@+id/centerImageView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/centerImageView"
-        app:layout_constraintTop_toTopOf="@+id/centerImageView"
-        app:layout_constraintVertical_bias="0.279" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/centerImageView" />
 
     <ImageView
         android:id="@+id/nachatimage"
@@ -68,9 +64,9 @@
         android:layout_height="108dp"
         android:clickable="true"
         android:onClick="onSoundClick"
-        android:src="@drawable/sound"
         android:scaleX="0.7"
         android:scaleY="0.7"
+        android:src="@drawable/sound"
         app:layout_constraintBottom_toBottomOf="@+id/centerImageView"
         app:layout_constraintEnd_toEndOf="@+id/centerImageView"
         app:layout_constraintHorizontal_bias="0.02"
@@ -82,10 +78,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="«Поскользнулся, упал, закрытый перелом,\n потерял сознание, очнулся — гипс!»"
         android:textColor="@color/grey"
         android:textSize="15dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

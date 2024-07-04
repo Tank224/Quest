@@ -31,15 +31,15 @@ public class Achievement extends AppCompatActivity {
 
             ImageView imageView1 = findViewById(R.id.Achiven1);
             ImageView imageView2 = findViewById(R.id.Achiven2);
-            ImageView imageView3 = findViewById(R.id.Achiven3);
-            ImageView imageView4 = findViewById(R.id.Achiven4);
+//            ImageView imageView3 = findViewById(R.id.Achiven3);
+//            ImageView imageView4 = findViewById(R.id.Achiven4);
 
             sharedPref = getSharedPreferences(SAVED_TEXT, MODE_PRIVATE);
 
-            achive1 = new Achive(false, imageView1, R.drawable.corona_black, R.drawable.corona);
-            achive2 = new Achive(false, imageView2, R.drawable.corona_black, R.drawable.corona);
-            achive3 = new Achive(false, imageView3, R.drawable.corona_black, R.drawable.corona);
-            achive4 = new Achive(false, imageView4, R.drawable.corona_black, R.drawable.corona);
+            achive1 = new Achive(false, imageView1, R.drawable.achiv_s_shad, R.drawable.achiv_s);
+            achive2 = new Achive(false, imageView2, R.drawable.achiv_d_shad, R.drawable.achiv_d);
+//            achive3 = new Achive(false, imageView3, R.drawable.corona_black, R.drawable.corona);
+//            achive4 = new Achive(false, imageView4, R.drawable.corona_black, R.drawable.corona);
 
             //Save_0();   //------ использовать для очистки данных очивок.
             //загрузили - сразу сбрасываете приложение и комментите метод
@@ -47,24 +47,24 @@ public class Achievement extends AppCompatActivity {
 
             if (Key_string.equals("")) {
                 Save_0();
-                new AlertDialog.Builder(this)
-                        .setTitle("Проверка")
-                        .setMessage("0000 - " + Key_string)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show();
+//                new AlertDialog.Builder(this)
+//                        .setTitle("Проверка")
+//                        .setMessage("0000 - " + Key_string)
+//                        .setPositiveButton(android.R.string.ok, null)
+//                        .show();
             } else {
                 char_array = Key_string.toCharArray();
                 Check_state(achive1, char_array[0]);
                 Check_state(achive2, char_array[1]);
-                Check_state(achive3, char_array[2]);
-                Check_state(achive4, char_array[3]);
+//                Check_state(achive3, char_array[2]);
+//                Check_state(achive4, char_array[3]);
             }
 
 
             Update(achive1);
             Update(achive2);
-            Update(achive3);
-            Update(achive4);
+//            Update(achive3);
+//            Update(achive4);
 
 
         } catch (Exception e) {
@@ -109,17 +109,17 @@ public class Achievement extends AppCompatActivity {
 
     void Save_0() {
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(SAVED_TEXT, "0000");
+        editor.putString(SAVED_TEXT, "00");
         editor.apply();
     }
 
     public void onBackClick(View view) {
         Save();
-        new AlertDialog.Builder(this)
-                .setTitle("Save")
-                .setMessage(Arrays.toString(char_array))
-                .setPositiveButton(android.R.string.ok, null)
-                .show();
+//        new AlertDialog.Builder(this)
+//                .setTitle("Save")
+//                .setMessage(Arrays.toString(char_array))
+//                .setPositiveButton(android.R.string.ok, null)
+//                .show();
         finish();
     }
 
@@ -135,17 +135,17 @@ public class Achievement extends AppCompatActivity {
         Update(achive2);
     }
 
-    public void Change3(View view) {
-        achive3.Status = true;
-        char_array[2] = '1';
-        Update(achive3);
-    }
-
-    public void Change4(View view) {
-        achive4.Status = true;
-        char_array[3] = '1';
-        Update(achive4);
-    }
+//    public void Change3(View view) {
+//        achive3.Status = true;
+//        char_array[2] = '1';
+//        Update(achive3);
+//    }
+//
+//    public void Change4(View view) {
+//        achive4.Status = true;
+//        char_array[3] = '1';
+//        Update(achive4);
+//    }
 
     @Override
     protected void onStop() {
