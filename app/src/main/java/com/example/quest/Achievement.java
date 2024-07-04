@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Arrays;
 
 public class Achievement extends AppCompatActivity {
