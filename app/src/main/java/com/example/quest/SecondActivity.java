@@ -27,7 +27,7 @@ public class SecondActivity extends AppCompatActivity implements TextToSpeech.On
         nachatimage = findViewById(R.id.nachatimage);
         soundImage = findViewById(R.id.soundImage);
         textView = findViewById(R.id.textView);
-        View oView = findViewById(R.id.secondLayout);
+        View oView = findViewById(R.id.SecondLayout);
         oView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
