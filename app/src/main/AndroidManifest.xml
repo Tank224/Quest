@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -16,7 +18,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar"
-        tools:targetApi="24">
+        tools:targetApi="24"
+        tools:ignore="MissingClass">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -41,6 +44,9 @@
             android:name=".SecondActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <meta-data
+            android:name="com.vk.sdk.AppId"
+            android:value="51985016" />
     </application>
 
 </manifest>

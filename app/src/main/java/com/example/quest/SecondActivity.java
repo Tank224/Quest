@@ -51,6 +51,7 @@ public class SecondActivity extends AppCompatActivity implements TextToSpeech.On
         mTextToSpeech.stop();
         Intent intent = new Intent(SecondActivity.this, QuestActivity.class);
         startActivity(intent);
+
     }
     public void onSoundClick(View view) {
         if (mIsInit) {

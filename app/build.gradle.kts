@@ -1,3 +1,4 @@
+
 plugins {
     id("com.android.application")
 }
@@ -42,4 +43,9 @@ dependencies {
     implementation("com.yandex.android:maps.mobile:4.6.1-full")
     implementation("com.google.android.gms:play-services-location:18.0.0")
     implementation("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.vk:android-sdk-core:4.1.0")
+    implementation ("com.vk:android-sdk-api:4.1.0")
+
 }
