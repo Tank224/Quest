@@ -209,17 +209,17 @@ public class MapActivity extends AppCompatActivity implements UserLocationObject
         polyline.setStrokeWidth(4f);
     }
     public void onIRunClick(View view) {
-//        float[] results = new float[1];
-//        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
-//        if (results[0] <= 200) {
-        finish();
+        float[] results = new float[1];
+        Location.distanceBetween(currentUserLocation.getLatitude(), currentUserLocation.getLongitude(), MainActivity.point1.getLatitude(), MainActivity.point1.getLongitude(), results);
+        if (results[0] <= 200) {
+            finish();
             Intent intent = new Intent(MapActivity.this, SecondActivity.class);
             startActivity(intent);
-//        }
-//        else{
-//            Toast.makeText(MapActivity.this, "Подойдите ближе к скульптуре",
-//                    Toast.LENGTH_SHORT).show();
-//        }
+        }
+        else{
+            Toast.makeText(MapActivity.this, "Подойдите ближе к скульптуре",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
     public void onBackClick(View view) {
         finish();

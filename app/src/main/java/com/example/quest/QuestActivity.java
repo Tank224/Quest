@@ -115,7 +115,6 @@ public class QuestActivity extends AppCompatActivity {
                 R.drawable.died,
                 "Польско-литовский отряд понял, что ты их обманул.",
                 new String[]{}));
-        //scenes.add(new Scene("", R.drawable.susanin_home, "В", new String[]{"Атаковать"}));
 
         createQuestScreen(scenes.get(0));
     }
@@ -212,8 +211,6 @@ public class QuestActivity extends AppCompatActivity {
     }
     public void onBackClick(View view) {
         finish();
-//        Intent intent = new Intent(QuestActivity.this, MainActivity.class);
-//        startActivity(intent);
     }
 
     private void handleOptionSelection(String selectedOption) {

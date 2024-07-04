@@ -115,12 +115,12 @@ public class Achievement extends AppCompatActivity {
 
     public void onBackClick(View view) {
         Save();
+        finish();
 //        new AlertDialog.Builder(this)
 //                .setTitle("Save")
 //                .setMessage(Arrays.toString(char_array))
 //                .setPositiveButton(android.R.string.ok, null)
 //                .show();
-        finish();
     }
 
     public void Change1(View view) {
